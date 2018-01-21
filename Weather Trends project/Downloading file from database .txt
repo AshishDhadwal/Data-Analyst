@@ -1,0 +1,26 @@
+
+//This is to just Determine the city whether there is not //
+select *
+from  city_List
+where country like 'India'
+
+//Its shows 22 Cities in india //
+
+// Now i need to change some of the colums names such as avg temp as it appears same as in city data 
+  global data//
+  
+ALTER TABLE global_data RENAME COLUMN avg_temp to global_avg_temp;
+
+ALTER TABLE city_data RENAME COLUMN avg_temp to city_avg_temp;
+
+
+//Now for downloading data sets //
+SELECT global_data.year, global_data.global_avg_temp, city_avg_temp
+FROM global_data INNER JOIN city_data /*For joining the two table */
+ON global_data.year=city_data.year where city like 'Delhi' 
+
+ /*SELECT column_name(s) FROM table_1
+JOIN table_2
+ON table_1.column_name = table_2.column_name; This synatx is used for inner join tables */
+
+/* Inner join will help me to filter that collums which i needed */
